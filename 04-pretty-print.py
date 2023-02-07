@@ -36,3 +36,21 @@ d: 4
 o1 = {"a": 1, "b": 2}
 o2 = {"a": 1, "b": 2, "c": {"name": "Bruce Wayne", "occupation": "Hero"}, "d": 4}
 o3 = {"a": 1, "b": 2, "c": {"name": "Bruce Wayne", "occupation": "Hero", "friends": {"spiderman": {"name": "Peter Parker"}, "superman": {"name": "Clark Kent"}}}, "d": 4}
+
+
+# Write a function called pretty_print that accepts a complex dictionary and prints out all of it's keys and all of its values.
+# The dictionary can have dictionaries nested inside of it.
+def pretty_print(dictionary, indent):
+    # base case
+    if isinstance(dictionary, dict):
+        for key in dictionary:
+            if isinstance(dictionary[key], dict):
+                print(indent + key + ":")
+                pretty_print(dictionary[key], indent + "  ")
+            else:
+                print(indent + key + ": " + str(dictionary[key]))
+    # recursive case
+    else:
+        print(indent + dictionary)
+# test
+pretty_print(o3, "")

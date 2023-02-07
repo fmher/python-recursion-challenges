@@ -18,3 +18,16 @@ output: 2
 input: 30
 output: 832040
 '''
+
+def fib(n):
+    # base case
+    if n < 2:
+        return n
+    # recursive case
+    else:
+        return fib(n-1) + fib(n-2)
+# test
+print(fib(0))
+print(fib(1))
+print(fib(2))
+print(fib(10))
